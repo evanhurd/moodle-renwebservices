@@ -23,20 +23,36 @@
 
 // We defined the web service functions to install.
 $functions = array(
-        'local_wstemplate_hello_world' => array(
-                'classname'   => 'local_wstemplate_external',
+        'local_renwebservices_hello_world' => array(
+                'classname'   => 'local_renwebservices',
                 'methodname'  => 'hello_world',
-                'classpath'   => 'local/wstemplate/externallib.php',
+                'classpath'   => 'local/renwebservices/externallib.php',
                 'description' => 'Return Hello World FIRSTNAME. Can change the text (Hello World) sending a new text as parameter',
                 'type'        => 'read',
+        ),
+        'local_renwebservices_create_grade_category' => array(
+                'classname'   => 'local_renwebservices',
+                'methodname'  => 'create_grade_category',
+                'classpath'   => 'local/renwebservices/externallib.php',
+                'description' => 'Creates a Grade Category in a course.',
+                'type'        => 'write',
         )
 );
 
 // We define the services to install as pre-build services. A pre-build service is not editable by administrator.
 $services = array(
-        'My service' => array(
-                'functions' => array ('local_wstemplate_hello_world'),
+        'RenWeb Services' => array(
+                'functions' => array (
+                        'local_renwebservices_hello_world',
+                        'local_renwebservices_create_grade_category',
+                        'core_group_create_groups',
+                        'core_group_create_groupings',
+                        'core_course_create_categories',
+                        'core_course_create_courses',
+                        'core_group_assign_grouping'
+                ),
                 'restrictedusers' => 0,
                 'enabled'=>1,
+                'shortname'=>'RenWebServices'
         )
 );

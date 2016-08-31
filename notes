@@ -1,0 +1,44 @@
+                38705 Connect   MDL_MOODLE28@localhost on MOODLE28UPGRADE_MDL
+                38705 Query     SET NAMES utf8
+                38705 Query     SET NAMES utf8
+                38705 Query     SET SESSION sql_mode = 'STRICT_ALL_TABLES'
+                38705 Query     SELECT value FROM mdl_config WHERE name = 'siteidentifier'
+                38705 Query     SELECT * FROM mdl_context WHERE contextlevel = '10'
+                38705 Query     SELECT * FROM mdl_course WHERE category = '0'
+                38705 Query     SELECT GET_LOCK('MOODLE28UPGRADE_MDL-mdl_-session-289660', 120)
+                38705 Query     SELECT * FROM mdl_course WHERE id = '28'
+                38705 Query     SELECT * FROM mdl_context WHERE contextlevel = '50' AND instanceid = '28'
+                38705 Query     SELECT ctx.*
+                  FROM mdl_context ctx
+                 WHERE ctx.path LIKE '/1/1524/1525/%'
+                38705 Query     SELECT name,value FROM mdl_user_preferences WHERE userid = '2'
+                38705 Query     SELECT timeaccess FROM mdl_user_lastaccess WHERE userid = '2' AND courseid = '28'
+                38705 Query     UPDATE mdl_user_lastaccess SET timeaccess = '1471909156' WHERE userid = '2' AND courseid = '28'
+                38705 Query     SELECT id, name, captype, riskbitmask FROM mdl_capabilities
+                38705 Query     SELECT * FROM mdl_context WHERE contextlevel = '50' AND instanceid = '1'
+--
+
+160822 19:39:58 38762 Connect   MDL_MOODLE28@localhost on MOODLE28UPGRADE_MDL
+                38762 Query     SET NAMES utf8
+                38762 Query     SET NAMES utf8
+                38762 Query     SET SESSION sql_mode = 'STRICT_ALL_TABLES'
+                38762 Query     SELECT value FROM mdl_config WHERE name = 'siteidentifier'
+                38762 Query     SELECT * FROM mdl_context WHERE contextlevel = '10'
+                38762 Query     SELECT * FROM mdl_course WHERE category = '0'
+                38762 Query     SELECT GET_LOCK('MOODLE28UPGRADE_MDL-mdl_-session-289660', 120)
+                38762 Query     SELECT * FROM mdl_course WHERE id = '28'
+                38762 Query     SELECT name,value FROM mdl_user_preferences WHERE userid = '2'
+                38762 Query     SELECT * FROM mdl_context WHERE contextlevel = '50' AND instanceid = '28'
+                38762 Query     SELECT id, name, captype, riskbitmask FROM mdl_capabilities
+                38762 Query     SELECT * FROM mdl_grade_items WHERE  courseid = '28' AND itemtype = 'course'
+                38762 Query     SELECT * FROM mdl_grade_categories WHERE  courseid = '28' AND parent IS NULL
+                38762 Query     INSERT INTO mdl_grade_categories (courseid,parent,depth,path,fullname,aggregation,keephigh,droplow,aggregateonlygraded,aggregateoutcomes,timecreated,timemodified,hidden) VALUES('28',NULL,'0',NULL,'?','11','0','0','1','0','1471909198','1471909198','0')
+                38762 Query     SELECT * FROM mdl_grade_categories WHERE id = '95'
+                38762 Query     INSERT INTO mdl_grade_categories_history (courseid,parent,depth,path,fullname,aggregation,keephigh,droplow,aggregateonlygraded,aggregateoutcomes,timemodified,hidden,action,oldid,source,loggeduser) VALUES('28',NULL,'0',NULL,'?','11','0','0','1','0','1471909198','0','1','95','system','2')
+                38762 Query     SELECT * FROM mdl_grade_items WHERE  courseid = '28' AND itemtype = 'course' AND iteminstance = '95'
+
+INSERT INTO mdl_grade_categories (courseid,parent,depth,path,fullname,aggregation,keephigh,droplow,aggregateonlygraded,aggregateoutcomes,timecreated,timemodified,hidden) VALUES('28','95','0',NULL,'Test5','11','0','0','1','0','1471968462','1471968462','0')
+
+courseid,parent,depth,path,fullname,aggregation,keephigh,droplow,aggregateonlygraded,aggregateoutcomes,timecreated,timemodified,hidden
+'28','95','0',NULL,'Test5','11','0','0','1','0','1471968462','1471968462','0'
+'28',NULL,'0',NULL,'?','11','0','0','1','0','1471909198','1471909198','0'
