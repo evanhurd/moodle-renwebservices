@@ -122,7 +122,7 @@ class local_renwebservices extends external_api {
             $grade_item->update();
 
             $response[] = array(
-                id => $grade_category->id
+                'id' => $grade_category->id
             );
         }
 
